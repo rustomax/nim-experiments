@@ -32,7 +32,7 @@ proc main() =
     ## This won't compile - the case is an exhaustive statement
     ## Error: not all cases are covered; missing: {fall}
 
-    ## Case is an impression, so you can use it in an assignment.
+    ## Case is an expression, so you can use it in an assignment.
     ## Also notice that we used `else` to capture the last choice.
     season = fall
     let weather = case season
