@@ -15,6 +15,8 @@ type
         index: float
 
 proc main() =
+    ## But naming tuple fields is optional, which is great
+    ## for a long initializer like this one
     var countries: seq[Country] = @[
         ("Sweden", 7.343),
         ("Norway", 7.554),
