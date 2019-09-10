@@ -43,6 +43,7 @@ proc double*(a: var openArray[int]) =
 proc demo*() =
     assert add(2, 3) == 5
     assert sum(1, 2, 3, 4) == 10
+    assert sum(10, 2) == 12
     assert genSum(0.5, 2.3, 1.0) == 3.8
     assert genSum(5, 9, 1, 8, 3) == 26
     assert genSum("Hello", " ", "World!") == "Hello World!"
