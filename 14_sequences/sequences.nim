@@ -7,13 +7,13 @@ proc doubleSeq*[T: SomeNumber](s: seq[T]): seq[T] =
     s.map(x => x * 2)
 
 proc mDoubleSeq*[T: SomeNumber](s: var seq[T]) =
-    ## The argument is assed as `var` (mutable reference),
+    ## The argument is passed as `var` (mutable reference),
     ## so we can change the sequence in place
     for v in s.mitems():
         v *= 2
 
 proc mTripleIt*[T: SomeNumber](s: var openArray[T]) =
-    ## OpenArray is a wrapper for variable and filex length arrays, and sequences,
+    ## OpenArray is a wrapper for both arrays and sequences,
     ## so this procedure will accept any such argument.
     for i in 0..s.high:
         s[i] *= 3
