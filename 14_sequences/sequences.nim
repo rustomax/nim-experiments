@@ -15,6 +15,7 @@ proc mDoubleSeq*[T: SomeNumber](s: var seq[T]) =
 proc mTripleIt*[T: SomeNumber](s: var openArray[T]) =
     ## OpenArray is a wrapper for both arrays and sequences,
     ## so this procedure will accept any such argument.
+    ## Open arrays are always indexed starting with `0`
     for i in 0..s.high:
         s[i] *= 3
         
@@ -40,7 +41,8 @@ assert c == b
 assert c.doubleSeq() == @[6, 12, 18, 24, 30]
 assert c == @[3, 6, 9, 12, 15]
 
-## `a` is mutable inside `mDoubleSeq`
+## `a` is mutable inside `mDoubleSeq()` since the variable is defined with `var`
+## AND the function expects a `var` parameter.
 a.mDoubleSeq()
 assert a == @[6, 12, 18, 24, 30]
 
