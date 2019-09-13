@@ -1,18 +1,12 @@
 ## This is a module talking about variables.
 
 import unicode, random, sequtils
+import input
 
 proc rollDice*(): int =
     ## Imitates a roll of a dice by returning a random number between 1 and 6.
     ## Output of this function is not deterministic, so it has side effects.
     result = rand(1..6)
-
-proc inputSameLine*(prompt: string): string =
-    ## Nim doesn't have a built-in function to print out a text prompt
-    ## and then collect user input on the same line, so we'll roll out our own.
-    stdout.write(prompt)
-    stdout.flushFile
-    result = readLine(stdin)
 
 proc reverseUnicode*(s: string): string {.noSideEffect.} =
     ## Correctly reverses a Unicode string.
