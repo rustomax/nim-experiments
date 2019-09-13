@@ -35,13 +35,12 @@ proc demo_vars*() =
     ## `let` defines an immutable variable.
     ##
     let z = 4.5
+    ## The following will fail to compile with `Error: 'z' cannot be assigned to`
+    ## z = z * 2.0
 
     ## Variable type can be inferred in many cases.
     let i = 10_000
     var s = "a string"
-
-    ## The following will fail to compile with `Error: 'z' cannot be assigned to`
-    ## z = z * 2.0
 
     ## Constants are defined with the `const` keyword.
     const BLUE = 0x0000FF
