@@ -11,9 +11,9 @@ type Person = object
     sex: Sex
     age: int
 
-var people_orig, people_read: seq[Person]
+var avengers, avengers_from_file: seq[Person]
 
-people_orig = @[
+avengers = @[
     Person(name: "Teenage Groot", sex: tree, age: 4),
     Person(name: "Gamora", sex: female, age: 29),
     Person(name: "Iron Man", sex: male, age: 48),
@@ -31,7 +31,7 @@ block:
 
     # Serialize json into a string and prettify it
     # Write JSON to the file
-    f.write (%*people_orig).pretty()
+    f.write (%*avengers).pretty()
 
     # Close the file
     f.close
@@ -43,9 +43,9 @@ block:
     # Read full contents of the file into a string
     # Parse the string into JSON
     # Unmarshall json into a type
-    people_read = f.readAll().parseJson().to(seq[Person])
+    avengers_from_file = f.readAll().parseJson().to(seq[Person])
 
     # Close the file
     f.close
 
-assert people_read == people_orig
+assert avengers_from_file == avengers
