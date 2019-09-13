@@ -4,6 +4,7 @@ import json
 type Sex = enum
     male
     female
+    tree
 
 type Person = object
     name: string
@@ -13,10 +14,13 @@ type Person = object
 var people_orig, people_read: seq[Person]
 
 people_orig = @[
-    Person(name: "John Doe", sex: male, age: 42),
-    Person(name: "Jane Doe", sex: female, age: 39),
-    Person(name: "Max Blow", sex: male, age: 21),
-    Person(name: "Julie Strange", sex: female, age: 60),
+    Person(name: "Teenage Groot", sex: tree, age: 4),
+    Person(name: "Gamora", sex: female, age: 29),
+    Person(name: "Iron Man", sex: male, age: 48),
+    Person(name: "Vision", sex: male, age: 3),
+    Person(name: "Spider-Man", sex: male, age: 18),
+    Person(name: "Mantis", sex: female, age: 32),
+    Person(name: "Star-Lord", sex: male, age: 38),
 ]
 
 let file_name = "test_file.json"
@@ -25,7 +29,7 @@ block:
     # Open file for writing
     let f = open(file_name, fmWrite)
 
-    # Serialize json into a string
+    # Serialize json into a string and prettify it
     # Write JSON to the file
     f.write (%*people_orig).pretty()
 
