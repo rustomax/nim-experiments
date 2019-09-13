@@ -12,8 +12,10 @@ proc newContainer*[T](e: bool, v: T): Container[T] =
 
 proc myMax*[T: SomeNumber](a, b: T): T =
     ## Generic max procedure.
-    ## Can limit types accepted using the `[T: int | float]` syntax
+    ## You can limit types accepted using the `[T: int | float]` syntax
     ## or you can use the "type classes", such as `SomeNumber`.
+    ## The full list of type classes is defined in the
+    ## [System module](https://nim-lang.org/docs/system.html):
     if a < b:
         return b
     else:
