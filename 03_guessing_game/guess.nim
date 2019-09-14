@@ -4,7 +4,6 @@ import input
 proc main() =
     randomize()
     let secret = rand(1..100)
-    echo secret
     echo "I am thinking of a number between 1 and 100"
 
     var attempts: int
