@@ -19,7 +19,8 @@ type
 proc frec*(n: BigInt): BigInt =
     ## Calculates factorial for `BigInt` arguments using recursion.
     ## Factorial only applies to positive numbers.
-    ## This function will overflow the stack on big numbers.
+    ## This function will overflow the stack on big numbers because
+    ## deep recursion will cause high memory usage.
     if n < 0:
         raise(newException(ArgumentException, "Invalid argument"))
     if n == 0.initBigInt:
@@ -30,8 +31,8 @@ proc frec*(n: BigInt): BigInt =
 proc fiter*(n: BigInt): BigInt =
     ## Calculates factorial for `BigInt` arguments using iteration.
     ## Factorial only applies to positive numbers.
-    ## This function will be much more resistant to overflow on big numbers.
-    ## Because the memory is barely used
+    ## This function is more resistant to overflow on big numbers,
+    ## because memory usage is constent and low.
     if n < 0:
         raise(newException(ArgumentException, "Invalid argument"))
     result = 1.initBigInt
