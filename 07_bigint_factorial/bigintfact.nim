@@ -1,11 +1,16 @@
 ## Factorial function for BigInts
 ##
-## Compile: `nim c -d:release bigintfact.nim`
+## Compile:
+##
+## ```sh
+##    nimble install bigints    
+##    nim c -d:release bigintfact.nim
+## ```
 ##
 ## Usage: `bigintfact <number>`
 
+
 import strutils, bigints, parseopt
-import "input"
 
 type
     ArgumentException* = object of Exception
