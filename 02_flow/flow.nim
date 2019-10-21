@@ -55,13 +55,11 @@ proc main() =
     s = @[]
     for i in countdown(100, 0, 10):
         s.add(i)
-    echo s
     assert s == @[100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
 
     ## for loop will iterate over a sequence or an array
     for elem in s:
-        stdout.write(elem, " ")
-    echo("")
+        discard
 
     ## You can yield mutable values from an interator.
     ## By conventions mutable iterator methods' names start with the letter "m"
@@ -70,17 +68,22 @@ proc main() =
         elem *= 2
     assert q == @[2, 4, 6, 8, 10]
 
-    ## if you need index as well as value, you can use `pairs` iterator
+    ## If you need index as well as value, you can use `pairs` iterator
+    ## The index starts with 0
     let days = ["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday",
             "Friday", "Saturday"]
     for num, day in days.pairs():
         echo num, " - ", day
+    ## Output:
+    ##   0 - Sunday
+    ##   1 - Monday
+    ##   ...
 
-    ## You can also iterate over a simple range
+    ## You can iterate over a simple range
     for i in 1..10:
         discard
 
-    ## 0-based counting has a couple of shortcuts "..<" and "..^"
+    ## 0-based index counting has a couple of shortcuts "..<" and "..^"
     let name = "Jane Doe"
     for i in 0..<name.len():
         discard
