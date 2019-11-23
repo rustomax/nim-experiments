@@ -34,6 +34,7 @@ assert conceptMax(5, 10) == 10
 
 # Try omitting `[float]` below and see what kind of error you get
 assert myMax[float](5, 10.3) == 10.3
+assert myMax(5.0, 10.3) == 10.3
 
 let b = Container[int](empty: true)
 let c = newContainer[int](false, 10)

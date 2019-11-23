@@ -1,13 +1,13 @@
-import stacks
+import stacks, unicode
 
-let a = "Hello, World!"
-var s = Stack[char]()
+let a = "Привет мир"
+var s = Stack[Rune]()
 
-for letter in a:
+for letter in a.runes:
     s.push(letter)
 
 var b: string
 while not s.empty:
     b.add(s.pop)
 
-assert b == "!dlroW ,olleH"
+echo b
